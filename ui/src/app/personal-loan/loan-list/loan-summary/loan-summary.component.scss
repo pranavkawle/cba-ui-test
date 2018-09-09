@@ -1,0 +1,22 @@
+.loan-summary {
+  width: 800px;
+  border: #dcdcdc 2px solid;
+  >.header {
+    background-color: #eeeeee;
+    padding: 5px 10px;
+    border-bottom: #dcdcdc 2px solid;
+  }
+  >.body {
+    background-color: #ffffff;
+    .line-item {
+      width: 40%;
+      padding: 0 10px;
+    }
+    .amount {
+      width: 20%;
+    }
+    .comment {
+      width: 35%;
+    }
+  }
+}
