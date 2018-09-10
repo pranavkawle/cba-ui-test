@@ -40,6 +40,9 @@ namespace Api
 
             // Wrap AspNet requests into Simpleinjector's scoped lifestyle
             services.UseSimpleInjectorAspNetRequestScoping(container);
+
+            // Add CORS service for cross origin requests
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +52,9 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // CORS configuration. For assignment, allowing all origins/headers/methods.
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseMvc();
 

@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Principle": 1000,
+    "InterestRate": 4,
+    "IsComplete": false,
+    "EarlyRepaymentFee": 100,
+    "CarryoverAmount": 400,
+    "InterestAmount": 200,
+    "Name": "Loan 1",
+    "IsTopUp": true
+  },
+  {
+    "Id": 2,
+    "Principle": 1200,
+    "InterestRate": 4,
+    "IsComplete": false,
+    "EarlyRepaymentFee": 100,
+    "CarryoverAmount": 900,
+    "InterestAmount": 300,
+    "Name": "Loan 2"
+  }
+]
