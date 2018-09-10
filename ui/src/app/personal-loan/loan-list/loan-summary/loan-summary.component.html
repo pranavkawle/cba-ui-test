@@ -1,14 +1,15 @@
-<div class="loan-summary margin-left-100">
-  <div class="header">1. Loan name</div>
-  <div class="body">
+<div class="loan-summary margin-left-5pc">
+  <div class="header">{{index+1}}. {{personalLoan.name}}</div>
+  <div class="body" (click)="onSummaryClick()">
     <div class="basic line-height-40">
       <div class="line-item display-inline-block">Balance</div>
-      <div class="amount display-inline-block">$1111</div>
+      <div class="amount display-inline-block">{{personalLoan.principle | currency}}</div>
       <div class="action-comment display-inline-block">
-        <input type="checkbox" value="Top Up" id="topUp" />
-        <label for="topUp">Top Up</label>
+        <label>
+          <input type="checkbox" [ngModel]="personalLoan.isTopUp" disabled> Top Up
+        </label>
       </div>
     </div>
-    <app-loan-details></app-loan-details>
+    <app-loan-details *ngIf="showDetails" [personalLoan]="personalLoan"></app-loan-details>
   </div>
 </div>

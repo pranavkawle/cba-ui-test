@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PersonalLoanModule } from './personal-loan/personal-loan.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorService } from './error.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,9 +14,12 @@ import { PersonalLoanModule } from './personal-loan/personal-loan.module';
   ],
   imports: [
     BrowserModule,
-    PersonalLoanModule
+    HttpClientModule,
+    RouterModule,
+    PersonalLoanModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ErrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

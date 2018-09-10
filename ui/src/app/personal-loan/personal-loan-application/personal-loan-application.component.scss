@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    h2 {
+        font-size: 14px;
+    }
+}
+
+label {
+    width: 40%;
+    max-width: 100px;
+    input {
+        margin-left: 5%;
+        padding: 5px;
+        width: 80%;
+        max-width: 500px;
+        border: #c5c5c5 2px solid;
+        &[type=checkbox] {
+            margin-left: 0%;
+            width: 30px;
+        }
+    }
+}

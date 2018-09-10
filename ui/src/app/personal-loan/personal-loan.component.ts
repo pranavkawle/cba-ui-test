@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ErrorService } from '../error.service';
 
 @Component({
   selector: 'app-personal-loan',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./personal-loan.component.scss']
 })
 export class PersonalLoanComponent implements OnInit {
+  count: number;
+  error: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private errorService: ErrorService) {
+    this.count = 0;
   }
 
+  ngOnInit() {
+    this.errorService.getError().subscribe(error => {
+      this.error = error;
+    });
+  }
+
+  onListLoaded(count: number) {
+    this.count = count;
+  }
 }

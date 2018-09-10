@@ -1,11 +1,13 @@
-<div class="loan-quantity line-height-40 padding-left-100 display-inline-block">You have <span></span> Personal Loans</div>
+<div class="loan-quantity line-height-40 padding-left-5pc display-inline-block">You have {{personalLoans.length}}
+  Personal Loans</div>
 <div class="loan-warning padding-left-10 display-inline-block">
-  <div class="warning valign-center padding-left-20 padding-right-20 height-50">
+  <div class="warning valign-center padding-left-20 padding-right-20 height-50" *ngIf="personalLoans.length >= 3">
     With 3 or more current Personal Loans, a new Loan application is not
     possible in this flow
   </div>
 </div>
 <div class="loan-list margin-top-40">
-  <app-loan-summary></app-loan-summary>
+  <app-loan-summary *ngFor="let personalLoan of personalLoans; let index = index;" [personalLoan]="personalLoan"
+    [index]="index"></app-loan-summary>
 </div>
 <div></div>

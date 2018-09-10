@@ -1,6 +1,14 @@
 .header {
-  grid-area: 1 / 2 / 2 / 12;
-  h2 {
-    font-size: 14px;
-  }
+    width: 100%;
+    h2 {
+        font-size: 14px;
+    }
+}
+
+.error-summary {
+    padding: 20px;
+    background-color: #f44336;
+    color: #ffffff;
+    width: 90%;
+    margin: 0 auto 10px auto;
 }

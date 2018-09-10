@@ -1,12 +1,14 @@
 .warning {
-  background-color: #e5e3e0;
-  border-left: #746F6A 2px solid;
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 0;
-  width: 360px;
+    background-color: #e5e3e0;
+    border-left: #746F6A 2px solid;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    max-width: 360px;
+    width: 80%;
 }
 
 .loan-quantity {
-  width: 924px;
+    max-width: 832px;
+    width: 90%;
 }

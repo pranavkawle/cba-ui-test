@@ -1,21 +1,21 @@
 <div class="details">
-  <div class="detail-item line-height-30">
+  <div class="detail-item">
     <div class="line-item display-inline-block">Balance includes interest of</div>
-    <div class="amount display-inline-block">$300</div>
-    <div class="action-comment display-inline-block">
+    <div class="amount line-height-30 display-inline-block">{{personalLoan.interestAmount | currency}}</div>
+    <div class="comment display-inline-block">
       &nbsp;
     </div>
   </div>
-  <div class="detail-item line-height-30">
+  <div class="detail-item">
     <div class="line-item display-inline-block">Early repayment fee</div>
-    <div class="amount display-inline-block">$50</div>
-    <div class="action-comment display-inline-block">
+    <div class="amount line-height-30 display-inline-block">{{personalLoan.earlyRepaymentFee | currency}}</div>
+    <div class="comment display-inline-block">
       &nbsp;
     </div>
   </div>
-  <div class="detail-item line-height-30">
+  <div class="detail-item">
     <div class="line-item display-inline-block">Payout / Carryover amount</div>
-    <div class="amount display-inline-block bold">$900</div>
-    <div class="action-comment display-inline-block">This amount will be carried over</div>
+    <div class="amount line-height-30 display-inline-block bold">{{personalLoan.carryoverAmount | currency}}</div>
+    <div class="comment display-inline-block">This amount will be carried over</div>
   </div>
 </div>

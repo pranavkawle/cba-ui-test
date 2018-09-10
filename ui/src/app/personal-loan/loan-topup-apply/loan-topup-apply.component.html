@@ -1,6 +1,6 @@
 <table class="border-top border-bottom">
   <tr>
-    <td class="info-message padding-left-100">
+    <td class="info-message padding-left-5pc">
       To apply for a TopUp of an existing loan amount, please select the loan below, make note of the
       Carry-over amount before proceeding.
     </td>
@@ -8,16 +8,18 @@
       Carryover / Payout amount
     </td>
     <td class="amount border-right text-align-right padding-right-10">
-      <strong>$111</strong>
+      <strong>{{getCarryoverAmount() | currency}}</strong>
     </td>
     <td class="padding-left-10">
-      <button class="border-round-25" (click)="onApplyForIncreasedLoanAmountClick()">Apply for Increased Loan amounts</button>
+      <button class="border-round-25" [disabled]="getCarryoverAmount() === 0" (click)="onApplyForIncreasedLoanAmountClick()">Apply
+        for Increased Loan amounts</button>
     </td>
   </tr>
   <tr>
     <td colspan="3" class="border-right"></td>
     <td class="padding-left-10">
-      <button class="border-round-25" (click)="onApplyForNewPersonalLoanClick()">Apply for new Personal Loan</button>
+      <button class="border-round-25" [disabled]="count >= 3" (click)="onApplyForNewPersonalLoanClick()">Apply for new
+        Personal Loan</button>
     </td>
   </tr>
 </table>
