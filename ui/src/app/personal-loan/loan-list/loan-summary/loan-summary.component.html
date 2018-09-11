@@ -1,9 +1,9 @@
 <div class="loan-summary margin-left-5pc">
   <div class="header">{{index+1}}. {{personalLoan.name}}</div>
-  <div class="body" (click)="onSummaryClick()">
-    <div class="basic line-height-40">
+  <div class="body">
+    <div class="basic line-height-40" (click)="onSummaryClick()">
       <div class="line-item display-inline-block">Balance</div>
-      <div class="amount display-inline-block">{{personalLoan.principle | currency}}</div>
+      <div class="amount display-inline-block">{{personalLoan.principalAmount | currency}}</div>
       <div class="action-comment display-inline-block">
         <label>
           <input type="checkbox" [ngModel]="personalLoan.isTopUp" disabled> Top Up

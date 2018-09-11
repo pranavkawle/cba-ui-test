@@ -22,7 +22,6 @@ export class LoanListComponent implements OnInit {
         if (data) {
           this.personalLoans = data;
           this.loaded.emit(this.personalLoans.length);
-          // this.personalLoanService.setPersonalLoanCount(this.personalLoans.length);
         }
       });
   }

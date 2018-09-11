@@ -16,9 +16,9 @@ export class PersonalLoanService {
     this.url = `${Constants.baseUrl}/personal-loan`;
   }
 
-  get(id?: number): Observable<PersonalLoan> {
-    if (id) {
-      return this.http.get<PersonalLoan>(`${this.url}/${id}`);
+  get(name?: string): Observable<PersonalLoan> {
+    if (name) {
+      return this.http.get<PersonalLoan>(`${this.url}/${name}`);
     }
     return of(null);
   }
@@ -27,8 +27,8 @@ export class PersonalLoanService {
     return this.http.get<Array<PersonalLoan>>(this.url);
   }
 
-  add(personalLoan: PersonalLoan): Observable<boolean> {
-    return this.http.post<boolean>(this.url, personalLoan);
+  add(personalLoan: PersonalLoan): Observable<{ isSuccess: boolean }> {
+    return this.http.post<{ isSuccess: boolean }>(this.url, personalLoan);
   }
 
   setPersonalLoan(personalLoan: PersonalLoan): void {

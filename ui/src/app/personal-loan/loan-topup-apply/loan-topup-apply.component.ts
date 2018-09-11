@@ -12,7 +12,7 @@ export class LoanTopupApplyComponent implements OnInit {
   @Input() count: number;
   private personalLoan: PersonalLoan;
 
-  constructor(private personalLoanService: PersonalLoanService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private personalLoanService: PersonalLoanService, private router: Router) { }
 
   ngOnInit() {
     this.personalLoanService.getPersonalLoan()
@@ -26,11 +26,10 @@ export class LoanTopupApplyComponent implements OnInit {
   }
 
   onApplyForIncreasedLoanAmountClick() {
-    console.log('ApplyForIncreasedLoanAmount');
+    console.log('Clicked to apply for increased loan amount');
   }
 
   onApplyForNewPersonalLoanClick() {
-    console.log('ApplyForNewPersonalLoan');
     this.router.navigate(['personal-loan', 'apply']);
   }
 
