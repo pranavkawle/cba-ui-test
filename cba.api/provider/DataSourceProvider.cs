@@ -7,7 +7,7 @@ namespace Provider
 {
     public class DataSourceProvider<T> : IDataSourceProvider<T> where T : class
     {
-        public readonly string _filePath;
+        private readonly string _filePath;
 
         public DataSourceProvider()
         {
@@ -35,12 +35,7 @@ namespace Provider
             var content = File.ReadAllText(_filePath);
             var data = JsonConvert.DeserializeObject<IEnumerable<T>>(content);
 
-            if (data != null)
-            {
-                return data.AsQueryable();
-            }
-
-            return null;
+            return data?.AsQueryable();
         }
 
         public void SaveAll(IEnumerable<T> entities)

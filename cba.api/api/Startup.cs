@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +12,7 @@ namespace Api
 {
     public class Startup
     {
-        private Container container = new Container();
+        private readonly Container _container = new Container();
 
         public Startup(IConfiguration configuration)
         {
@@ -29,17 +28,17 @@ namespace Api
 
             // Default lifestyle scoped + async
             // The recommendation is to use AsyncScopedLifestyle in for applications that solely consist of a Web API(or other asynchronous technologies such as ASP.NET Core)
-            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+            _container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             // Register services
-            Provider.InjectorRegistration.Register(container);
-            Service.InjectorRegistration.Register(container);
+            Provider.InjectorRegistration.Register(_container);
+            Service.InjectorRegistration.Register(_container);
 
             // Register controllers DI resolution
-            services.AddSingleton<IControllerActivator>(new SimpleInjectorControllerActivator(container));
+            services.AddSingleton<IControllerActivator>(new SimpleInjectorControllerActivator(_container));
 
             // Wrap AspNet requests into Simpleinjector's scoped lifestyle
-            services.UseSimpleInjectorAspNetRequestScoping(container);
+            services.UseSimpleInjectorAspNetRequestScoping(_container);
 
             // Add CORS service for cross origin requests
             services.AddCors();
@@ -58,10 +57,10 @@ namespace Api
 
             app.UseMvc();
 
-            container.RegisterMvcControllers(app);
+            _container.RegisterMvcControllers(app);
 
             // Verify Simple Injector configuration
-            container.Verify();
+            _container.Verify();
         }
     }
 }

@@ -25,17 +25,21 @@ namespace api.Controllers
         }
 
         // GET: api/PersonalLoan/5
-        [HttpGet("{id}", Name = "Get")]
-        public PersonalLoan Get(int id)
+        [HttpGet("{name}", Name = "Get")]
+        public PersonalLoan Get(string name)
         {
-            return _personalLoanService.Get(id);
+            return _personalLoanService.Get(name);
         }
 
         // POST: api/PersonalLoan
         [HttpPost]
-        public void Post([FromBody] PersonalLoan personalLoan)
+        public JsonResult Post([FromBody] PersonalLoan personalLoan)
         {
-            _personalLoanService.Add(personalLoan);
+            var result = _personalLoanService.Add(personalLoan);
+            return new JsonResult(new
+            {
+                IsSuccess = result
+            });
         }
 
         // PUT: api/PersonalLoan/5

@@ -15,7 +15,7 @@ namespace Provider
 
         public IQueryable<PersonalLoan> GetAll()
         {
-            return _dataSourceProvider.GetAll();
+            return _dataSourceProvider.GetAll() ?? (new List<PersonalLoan>()).AsQueryable();
         }
 
         public bool Insert(PersonalLoan personalLoan)

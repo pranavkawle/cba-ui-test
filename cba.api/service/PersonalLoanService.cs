@@ -17,11 +17,11 @@ namespace Service
             _personalLoanProvider = personalLoanProvider;
         }
 
-        public PersonalLoan Get(int id)
+        public PersonalLoan Get(string name)
         {
             try
             {
-                return _personalLoanProvider.GetAll().Single(personalLoan => personalLoan.Id == id);
+                return _personalLoanProvider.GetAll().Single(personalLoan => personalLoan.Name == name);
             }
             catch (Exception ex)
             {

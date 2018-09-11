@@ -6,7 +6,7 @@ namespace Service
     public interface IPersonalLoanService
     {
         bool Add(PersonalLoan personalLoan);
-        PersonalLoan Get(int id);
+        PersonalLoan Get(string name);
         IEnumerable<PersonalLoan> GetAll();
     }
 }
